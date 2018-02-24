@@ -131,7 +131,7 @@
                 enabled: true,
                 key: 'plyr',
             },
-            controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'fullscreen'],
+            controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'mining-controls', 'captions', 'fullscreen'],
             i18n: {
                 restart: 'Restart',
                 rewind: 'Rewind {seektime} secs',
@@ -816,6 +816,7 @@
                 iconUrl = _getIconUrl(),
                 iconPath = (!iconUrl.absolute ? iconUrl.url : '') + '#' + config.iconPrefix;
 
+
             // Larger overlaid play button
             if (_inArray(config.controls, 'play-large')) {
                 html.push(
@@ -939,6 +940,30 @@
                         config.volume +
                         '" data-plyr="volume">',
                     '<progress class="plyr__volume--display" max="' + config.volumeMax + '" value="' + config.volumeMin + '" role="presentation"></progress>',
+                    '</span>'
+                );
+            }
+
+
+            // Mining range control
+            if (_inArray(config.controls, 'mining-controls')) {
+                html.push(
+                    '<button type="button" data-plyr="mute">',
+                    '<img class="icon" src="https://maxcdn.icons8.com/office/PNG/512/Gaming/minecraft_pickaxe-512.png">',
+                    '<span class="plyr__sr-only">' + config.i18n.toggleMute + '</span>',
+                    '</button>'
+                );
+                html.push(
+                    '<span class="plyr__mining">',
+                    '<label for="volume{id}" class="plyr__sr-only">' + config.i18n.volume + '</label>',
+                    '<input id="volume{id}" class="plyr__mining--input" type="range" min="' +
+                        config.volumeMin +
+                        '" max="' +
+                        config.volumeMax +
+                        '" value="' +
+                        config.volume +
+                        '" data-plyr="volume">',
+                    '<progress class="plyr__mining--display" max="' + config.volumeMax + '" value="' + config.volumeMin + '" role="presentation"></progress>',
                     '</span>'
                 );
             }

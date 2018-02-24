@@ -289,7 +289,7 @@
             margin-left: 0;
         }
     }
-    .plyr__volume {
+    .plyr__volume, .plyr__mining {
         margin-left: (@plyr-control-spacing / 2);
     }
     [data-plyr='pause'] {
@@ -573,7 +573,7 @@
 
 .plyr__progress--buffer,
 .plyr__progress--played,
-.plyr__volume--display {
+.plyr__volume--display, .plyr__mining--display {
     position: absolute;
     left: 0;
     top: 50%;
@@ -605,7 +605,7 @@
     }
 }
 .plyr__progress--played,
-.plyr__volume--display {
+.plyr__volume--display, .plyr__mining--display {
     z-index: 1;
     color: @plyr-range-selected-bg;
     background: transparent;
@@ -641,14 +641,14 @@
     }
 }
 .plyr--video .plyr__progress--buffer,
-.plyr--video .plyr__volume--display {
+.plyr--video .plyr__volume--display, .plyr--video .plyr__mining--display {
     background: @plyr-video-range-track-bg;
 }
 .plyr--video .plyr__progress--buffer {
     color: @plyr-video-progress-buffered-bg;
 }
 .plyr--audio .plyr__progress--buffer,
-.plyr--audio .plyr__volume--display {
+.plyr--audio .plyr__volume--display, .plyr--audio .plyr__mining--display {
     background: @plyr-audio-range-track-bg;
 }
 .plyr--audio .plyr__progress--buffer {
@@ -703,10 +703,10 @@
 
 // Volume
 // --------------------------------------------------------------
-.plyr__volume {
+.plyr__volume, .plyr__mining {
     display: none;
 }
-.plyr .plyr__volume {
+.plyr .plyr__volume, .plyr .plyr__mining {
     flex: 1;
     position: relative;
 

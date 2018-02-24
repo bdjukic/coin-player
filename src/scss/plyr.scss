@@ -291,6 +291,10 @@
     .plyr__volume {
         margin-left: ($plyr-control-spacing / 2);
     }
+    .plyr__mining {
+        margin-left: ($plyr-control-spacing / 2);
+    }
+
     [data-plyr="pause"] {
         margin-left: 0;
     }
@@ -574,6 +578,7 @@
 
 .plyr__progress--buffer,
 .plyr__progress--played,
+.plyr__mining--display,
 .plyr__volume--display {
     position: absolute;
     left: 0;
@@ -605,6 +610,7 @@
     }
 }
 .plyr__progress--played,
+.plyr__mining--display,
 .plyr__volume--display {
     z-index: 1;
     color: $plyr-range-selected-bg;
@@ -641,6 +647,7 @@
     }
 }
 .plyr--video .plyr__progress--buffer,
+.plyr--video .plyr__mining--display,
 .plyr--video .plyr__volume--display {
     background: $plyr-video-range-track-bg;
 }
@@ -648,6 +655,7 @@
     color: $plyr-video-progress-buffered-bg;
 }
 .plyr--audio .plyr__progress--buffer,
+.plyr--audio .plyr__mining--display,
 .plyr--audio .plyr__volume--display {
     background: $plyr-audio-range-track-bg;
 }
@@ -707,6 +715,28 @@
     display: none;
 }
 .plyr .plyr__volume {
+    flex: 1;
+    position: relative;
+
+    input[type="range"] {
+        position: relative;
+        z-index: 2;
+    }
+    @media (min-width: $plyr-bp-screen-sm) {
+        display: block;
+        max-width: 60px;
+    }
+    @media (min-width: $plyr-bp-screen-md) {
+        max-width: 100px;
+    }
+}
+
+// Mining
+// --------------------------------------------------------------
+.plyr__mining {
+    display: none;
+}
+.plyr .plyr__mining {
     flex: 1;
     position: relative;
 
