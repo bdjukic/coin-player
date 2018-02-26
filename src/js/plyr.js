@@ -40,6 +40,9 @@
             volumeMin: 0,
             volumeMax: 10,
             volumeStep: 1,
+            miningMax: 80,
+            miningMin: 20,
+            mining_speed: 50,
             duration: null,
             displayDuration: true,
             loadSprite: true,
@@ -82,6 +85,10 @@
                 volume: {
                     input: '[data-plyr="volume"]',
                     display: '.plyr__volume--display',
+                },
+                mining: {
+                    input: '[data-plyr="mining"]',
+                    display: '.plyr__mining--display',
                 },
                 progress: {
                     container: '.plyr__progress',
@@ -198,6 +205,7 @@
                 'seeking',
                 'seeked',
                 'emptied',
+                'changedMiningSpeed',
             ],
             // Logging
             logPrefix: '[Plyr]',
@@ -809,6 +817,15 @@
             };
         }
 
+        function changedMiningSpeed(miningSpeed) {
+            // Set the display
+            if (plyr.mining.display) {
+                plyr.mining.display.value = miningSpeed;
+            }
+
+            _triggerEvent(plyr.media, 'changedMiningSpeed');
+        }
+
         // Build the default HTML
         function _buildControls() {
             // Create html array
@@ -955,15 +972,15 @@
                 );
                 html.push(
                     '<span class="plyr__mining">',
-                    '<label for="volume{id}" class="plyr__sr-only">' + config.i18n.volume + '</label>',
-                    '<input id="volume{id}" class="plyr__mining--input" type="range" min="' +
-                        config.volumeMin +
+                    '<label for="mining{id}" class="plyr__sr-only">' + config.i18n.volume + '</label>',
+                    '<input id="mining{id}" class="plyr__mining--input" type="range" min="' +
+                        config.miningMin +
                         '" max="' +
-                        config.volumeMax +
+                        config.miningMax +
                         '" value="' +
-                        config.volume +
-                        '" data-plyr="volume">',
-                    '<progress class="plyr__mining--display" max="' + config.volumeMax + '" value="' + config.volumeMin + '" role="presentation"></progress>',
+                        config.mining_speed +
+                        '" data-plyr="mining">',
+                    '<progress class="plyr__mining--display" max="' + config.miningMax + '" value="' + config.miningMin + '" role="presentation"></progress>',
                     '</span>'
                 );
             }
@@ -1465,6 +1482,12 @@
                 plyr.volume.input = _getElement(config.selectors.volume.input);
                 plyr.volume.display = _getElement(config.selectors.volume.display);
 
+                console.log(plyr.volume);
+
+                plyr.mining = {};
+                plyr.mining.input = _getElement(config.selectors.mining.input);
+                plyr.mining.display = _getElement(config.selectors.mining.display);                
+                console.log(plyr.mining);
                 // Timing
                 plyr.duration = _getElement(config.selectors.duration);
                 plyr.currentTime = _getElement(config.selectors.currentTime);
@@ -3217,6 +3240,11 @@
                 _setVolume(plyr.volume.input.value);
             });
 
+            
+            _proxyListener(plyr.mining.input, inputEvent, config.listeners.mining, function() {
+                changedMiningSpeed(plyr.mining.input.value);
+            });
+
             // Mute
             _proxyListener(plyr.buttons.mute, 'click', config.listeners.mute, _toggleMute);
 
@@ -3642,6 +3670,9 @@
             },
             getVolume: function() {
                 return plyr.media.volume;
+            },
+            getMiningSpeed: function() {
+                return plyr.mining.display.value;
             },
             isMuted: function() {
                 return plyr.media.muted;
