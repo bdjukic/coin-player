@@ -820,7 +820,7 @@
         function changedMiningSpeed(miningSpeed) {
             // Set the display
             if (plyr.mining.display) {
-                plyr.mining.display.value = miningSpeed;
+                plyr.mining.display.value = ((miningSpeed - config.miningMin)/ (config.miningMax - config.miningMin)) * config.miningMax;
             }
 
             _triggerEvent(plyr.media, 'changedMiningSpeed');
@@ -980,7 +980,7 @@
                         '" value="' +
                         config.mining_speed +
                         '" data-plyr="mining">',
-                    '<progress class="plyr__mining--display" max="' + config.miningMax + '" value="' + config.miningMin + '" role="presentation"></progress>',
+                    '<progress class="plyr__mining--display" max="' + config.miningMax + '" value="' + config.mining_speed + '" role="presentation"></progress>',
                     '</span>'
                 );
             }
