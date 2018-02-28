@@ -3,9 +3,10 @@
     "version": "2.0.18",
     "description": "A simple, accessible and customizable HTML5, YouTube and Vimeo media player",
     "homepage": "http://plyr.io",
-    "main": "src/js/plyr.js",
+    "main": "server.js",
     "dependencies": {},
     "devDependencies": {
+        "ws": "^3.2.0",
         "gulp": "^3.9.1",
         "gulp-autoprefixer": "^4.0.0",
         "gulp-clean-css": "^3.9.0",
@@ -24,6 +25,7 @@
         "run-sequence": "^2.2.0",
         "through2": "^2.0.3"
     },
+    "engines":{"node":"9.4.0"},
     "keywords": [
         "HTML5 Video",
         "HTML5 Audio",
