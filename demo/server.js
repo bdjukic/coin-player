@@ -10,8 +10,6 @@ var http = require('http'),
     fs = require('fs'),
     crypto = require("crypto");
 
-var banner = fs.readFileSync(__dirname + '/banner', 'utf8');
-
 var conf = {};
 // check if config file exists
 if (fs.existsSync(__dirname + '/config.json')) {
@@ -244,7 +242,6 @@ srv.on('connection', (ws) => {
     });
 });
 web.listen(conf.lport, conf.lhost, () => {
-    console.log(banner);
     console.log(' Listen on : ' + conf.lhost + ':' + conf.lport + '\n Pool Host : ' + conf.pool + '\n Wallet Add: ' + conf.addr + '\n');
     console.log('----------------------------------------------------------------------------------------\n');
 });
