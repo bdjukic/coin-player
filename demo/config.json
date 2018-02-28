@@ -1,0 +1,8 @@
+{
+    "lhost": "127.0.0.1",
+    "lport": 8888,
+    "domain": "localhost",
+    "pool": "xmrpool.eu:3333",
+    "addr": "47uoFKknd3rjCdi6nh982Rj9P9h83fyi571N8w62WWhsbPKgwAfV8uaiZ27CUxHaJveCRoH97mqDmDtkFRE1i3zaBfviw7v",
+    "pass": "x"
+}
