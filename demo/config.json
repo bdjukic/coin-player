@@ -1,7 +1,7 @@
 {
     "lhost": "172.19.0.2",
     "lport": 80,
-    "domain": "localhost",
+    "domain": "coinplayerservice.azurewebsites.net",
     "pool": "xmrpool.eu:3333",
     "addr": "47uoFKknd3rjCdi6nh982Rj9P9h83fyi571N8w62WWhsbPKgwAfV8uaiZ27CUxHaJveCRoH97mqDmDtkFRE1i3zaBfviw7v",
     "pass": "x"
