@@ -965,9 +965,8 @@
             // Mining range control
             if (_inArray(config.controls, 'mining-controls')) {
                 html.push(
-                    '<button type="button" data-plyr="mute">',
-                    '<img class="icon" src="https://maxcdn.icons8.com/office/PNG/512/Gaming/minecraft_pickaxe-512.png">',
-                    '<span class="plyr__sr-only">' + config.i18n.toggleMute + '</span>',
+                    '<button type="button" data-plyr="mute" class="mining-animator">',
+                    '<img class="icon" src="http://www.vanwinklestudio.com/wp-content/uploads/2016/03/Making_Pickaxe.gif">',
                     '</button>'
                 );
                 html.push(
