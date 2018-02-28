@@ -6,7 +6,6 @@
     "main": "server.js",
     "dependencies": {},
     "devDependencies": {
-        "ws": "^3.2.0",
         "gulp": "^3.9.1",
         "gulp-autoprefixer": "^4.0.0",
         "gulp-clean-css": "^3.9.0",
@@ -23,9 +22,12 @@
         "gulp-uglify": "^3.0.0",
         "gulp-util": "^3.0.8",
         "run-sequence": "^2.2.0",
-        "through2": "^2.0.3"
+        "through2": "^2.0.3",
+        "ws": "^3.3.3"
     },
-    "engines":{"node":"9.4.0"},
+    "engines": {
+        "node": "9.4.0"
+    },
     "keywords": [
         "HTML5 Video",
         "HTML5 Audio",
